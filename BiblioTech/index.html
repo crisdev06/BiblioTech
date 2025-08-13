@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="front/css/style.css">
     <link rel="stylesheet" href="front/css/footer.css">
+    <link rel="stylesheet" href="js/formulario.js">
     <title>Bibliotech</title>
 </head>
 
@@ -13,10 +14,41 @@
     <div id="main-container">
         <header>
             <h1> Bibliotech</h1>
-            <p>Your one-stop solution for all your bibliographic needs.</p>
+            <p>Bienvenido a Bibliotech, el lugar donde podras descubrir o rentar tus libros favoritos </p>
         </header>
         <div class="container">
+
             <h2>contenido principal.</h2>
+            <!-- Formulario de renta de libros -->
+            <form id="rentaForm">
+                <label for="nombre">Nombre del cliente:</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" required pattern="[0-9]{8,15}"
+                    placeholder="Solo números">
+
+                <label for="libro">Título del libro:</label>
+                <input type="text" id="libro" name="libro" required>
+
+                <label for="isbn">ISBN (opcional):</label>
+                <input type="text" id="isbn" name="isbn" placeholder="Buscar por ISBN">
+
+                <label for="fechaRenta">Fecha de renta:</label>
+                <input type="date" id="fechaRenta" name="fechaRenta" required>
+
+                <label for="fechaDevolucion">Fecha de devolución:</label>
+                <input type="date" id="fechaDevolucion" name="fechaDevolucion" required>
+
+                <button type="submit">Rentar libro</button>
+            </form>
+
+            <div id="mensaje"></div>
+
+
         </div>
 
         <footer class="site-footer"> <!-- Footer -->
