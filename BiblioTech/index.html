@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="front/css/style.css">
     <link rel="stylesheet" href="front/css/footer.css">
+    <link rel="stylesheet" href="front/css/formularios.css">
 
     <title>Bibliotech</title>
 </head>
@@ -13,37 +14,76 @@
 <body>
     <div id="main-container">
         <header>
-            <h1> Bibliotech</h1>
+            <h1>Bibliotech</h1>
             <p>Bienvenido a Bibliotech, el lugar donde podras descubrir o rentar tus libros favoritos </p>
+
+            <nav class="navbar">
+                <ul>
+                    <li><button id="btnLogin">Iniciar sesión</button></li>
+                    <li><button id="btnRegister">Registrarse</button></li>
+                    <li><button id="btnMostrarRenta">Reservar Libro</button></li>
+                </ul>
+            </nav>
+
         </header>
         <div class="container">
 
             <h2>contenido principal.</h2>
+
+            <!-- Formulario de Iniciar Sesión -->
+            <form id="loginForm" class="hidden">
+                <h2>Iniciar Sesión</h2>
+                <button type="button" id="cerrarInicio" class="cerrar-btn">X</button>
+                <label for="loginEmail">Correo:</label>
+                <input type="email" id="loginEmail" required>
+
+                <label for="loginPassword">Contraseña:</label>
+                <input type="password" id="loginPassword" required>
+
+                <button class="enviarForm" type="submit">Ingresar</button>
+            </form>
+
+            <!-- Formulario de Registro -->
+            <form id="registerForm" class="hidden">
+                <h2>Registrarse</h2>
+
+                <button type="button" id="cerrarRegistro" class="cerrar-btn">X</button>
+                <label for="regNombre">Nombre:</label>
+                <input type="text" id="regNombre" required>
+
+                <label for="regEmail">Correo:</label>
+                <input type="email" id="regEmail" required>
+
+                <label for="regTelefono">Teléfono:</label>
+                <input type="tel" id="regTelefono" required pattern="[0-9]{8,15}" placeholder="Solo números">
+
+                <label for="regPassword">Contraseña:</label>
+                <input type="password" id="regPassword" required>
+
+                <button class="enviarForm" type="submit">Registrarse</button>
+            </form>
+
+            <!-- Botón para generar la renta -->
+            <button id="btnMostrarRenta" class="hidden">Reservar Libro</button>
+
             <!-- Formulario de renta de libros -->
-            <form id="rentaForm">
-                <label for="nombre">Nombre del cliente:</label>
-                <input type="text" id="nombre" name="nombre" required>
-
-                <label for="email">Correo electrónico:</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="telefono">Teléfono:</label>
-                <input type="tel" id="telefono" name="telefono" required pattern="[0-9]{8,15}"
-                    placeholder="Solo números">
+            <form id="rentaForm" class="hidden">
+                <h2>Reservar Libro</h2>
+                <button type="button" id="cerrarRenta" class="cerrar-btn">X</button>
 
                 <label for="libro">Título del libro:</label>
-                <input type="text" id="libro" name="libro" required>
+                <input type="text" id="libro" required>
 
                 <label for="isbn">ISBN (opcional):</label>
-                <input type="text" id="isbn" name="isbn" placeholder="Buscar por ISBN">
+                <input type="text" id="isbn" placeholder="Buscar por ISBN">
 
                 <label for="fechaRenta">Fecha de renta:</label>
-                <input type="date" id="fechaRenta" name="fechaRenta" required>
+                <input type="date" id="fechaRenta" required>
 
                 <label for="fechaDevolucion">Fecha de devolución:</label>
-                <input type="date" id="fechaDevolucion" name="fechaDevolucion" required>
+                <input type="date" id="fechaDevolucion" required>
 
-                <button type="submit">Rentar libro</button>
+                <button class="enviarForm" type="submit" disabled>Rentar libro</button>
             </form>
 
             <div id="mensaje"></div>
@@ -75,7 +115,7 @@
             </div>
         </footer>
     </div>
-    <link rel="stylesheet" href="front/js/formulario.js">
+    <script src="front/js/formulario.js"></script>
 </body>
 
 </html>
