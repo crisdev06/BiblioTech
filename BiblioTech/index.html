@@ -24,202 +24,227 @@
                 </ul>
             </nav>
             <h1>BiblioTech</h1>
-            <p>¡Bienvenido a BiblioTech! el lugar donde podrás descubrir o rentar tus libros favoritos. Aquí no solo encontrarás libros digitales, sino un espacio pensado para que aprender y descubrir sea sencillo y agradable. Ya sea que estés estudiando, investigando o simplemente quieras sumergirte en una buena lectura, nuestra biblioteca virtual te acompaña a donde vayas. Con solo un clic puedes acceder a un mundo de conocimiento, explorar nuevas ideas y disfrutar de tus libros favoritos sin complicaciones. En BiblioTech creemos que aprender debe ser fácil, inspirador y, sobre todo, accesible para todos. Queremos que cada visita a nuestro biblioteca sea un acercamiento más a enriquecer nuestra mente y espiritu de aprendizaje. </p>
-</header>
-            
-
-        
-       
-
-            
-            <form id="loginForm" class="hidden">
-                <h2>Iniciar Sesión</h2>
-                <button type="button" id="cerrarInicio" class="cerrar-btn">X</button>
-                <label for="loginEmail">Correo:</label>
-                <input type="email" id="loginEmail" required>
-
-                <label for="loginPassword">Contraseña:</label>
-                <input type="password" id="loginPassword" required>
-
-                <button class="enviarForm" type="submit">Ingresar</button>
-            </form>
-
-            
-            <form id="registerForm" class="hidden">
-                <h2>Registrarse</h2>
-
-                <button type="button" id="cerrarRegistro" class="cerrar-btn">X</button>
-                <label for="regNombre">Nombre:</label>
-                <input type="text" id="regNombre" required>
-
-                <label for="regEmail">Correo:</label>
-                <input type="email" id="regEmail" required>
-
-                <label for="regTelefono">Teléfono:</label>
-                <input type="tel" id="regTelefono" required pattern="[0-9]{8,15}" placeholder="Solo números">
-
-                <label for="regPassword">Contraseña:</label>
-                <input type="password" id="regPassword" required>
-
-                <button class="enviarForm" type="submit">Registrarse</button>
-            </form>
-
-            <!-- Botón para generar la renta -->
-            <button id="btnMostrarRenta" class="hidden">Reservar Libro</button>
-
-            <!-- Formulario de renta de libros -->
-            <form id="rentaForm" class="hidden">
-                <h2>Reservar Libro</h2>
-                <button type="button" id="cerrarRenta" class="cerrar-btn">X</button>
-
-                <label for="libro">Título del libro:</label>
-                <input type="text" id="libro" required>
-
-                <label for="isbn">ISBN (opcional):</label>
-                <input type="text" id="isbn" placeholder="Buscar por ISBN">
-
-                <label for="fechaRenta">Fecha de renta:</label>
-                <input type="date" id="fechaRenta" required>
-
-                <label for="fechaDevolucion">Fecha de devolución:</label>
-                <input type="date" id="fechaDevolucion" required>
-
-                <button class="enviarForm" type="submit" disabled>Rentar libro</button>
-            </form>
-
-            <div id="mensaje"></div>
+            <p>¡Bienvenido a BiblioTech! el lugar donde podrás descubrir o rentar tus libros favoritos. Aquí no solo
+                encontrarás libros digitales, sino un espacio pensado para que aprender y descubrir sea sencillo y
+                agradable. Ya sea que estés estudiando, investigando o simplemente quieras sumergirte en una buena
+                lectura, nuestra biblioteca virtual te acompaña a donde vayas. Con solo un clic puedes acceder a un
+                mundo de conocimiento, explorar nuevas ideas y disfrutar de tus libros favoritos sin complicaciones. En
+                BiblioTech creemos que aprender debe ser fácil, inspirador y, sobre todo, accesible para todos. Queremos
+                que cada visita a nuestro biblioteca sea un acercamiento más a enriquecer nuestra mente y espiritu de
+                aprendizaje. </p>
+        </header>
 
 
-        </div>
-
-            
-  <div class="container my-5">
-    <h2 class="text-center mb-4">Libros Destacados</h2>
-    <div class="row g-4">
-
-      <!-- Tarjeta 1 -->
-      <div class="col-md-4 col-lg-3">
-        <div class="card h-100 shadow">
-          <img src="image/matar-a-un-ruisenor-resumen.jpeg" class="card-img-top" alt="Matar un ruiseñor">
-          <div class="card-body">
-            <h5 class="card-title">Matar un ruiseñor</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Harper Lee</h6>
-            <p class="card-text">Un clásico de la literatura moderna que aborda temas de justicia, racismo y moralidad en el sur de Estados Unidos.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tarjeta 2 -->
-      <div class="col-md-4 col-lg-3">
-        <div class="card h-100 shadow">
-          <img src="image/crimen y castigo.jpg" class="card-img-top" alt="Crimen y castigo">
-          <div class="card-body">
-            <h5 class="card-title">Crimen y castigo</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Fiódor Dostoyevski</h6>
-            <p class="card-text">La historia de Raskólnikov, un joven estudiante que lucha con la culpa y la redención tras cometer un asesinato.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tarjeta 3 -->
-      <div class="col-md-4 col-lg-3">
-        <div class="card h-100 shadow">
-          <img src="image/1984.jpg" class="card-img-top" alt="1984">
-          <div class="card-body">
-            <h5 class="card-title">1984</h5>
-            <h6 class="card-subtitle mb-2 text-muted">George Orwell</h6>
-            <p class="card-text">Una novela distópica que explora el totalitarismo, la vigilancia extrema y la manipulación de la verdad.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tarjeta 4 -->
-      <div class="col-md-4 col-lg-3">
-        <div class="card h-100 shadow">
-          <img src="image/cien años de soledad.jpg" class="card-img-top" alt="Cien años de soledad">
-          <div class="card-body">
-            <h5 class="card-title">Cien años de soledad</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Gabriel García Márquez</h6>
-            <p class="card-text">La obra cumbre del realismo mágico que narra la historia de la familia Buendía en el mítico pueblo de Macondo.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tarjeta 5 -->
-      <div class="col-md-4 col-lg-3">
-        <div class="card h-100 shadow">
-          <img src="image/Don Quijote De la Mancha.jpg" class="card-img-top" alt="Don Quijote de la Mancha">
-          <div class="card-body">
-            <h5 class="card-title">Don Quijote de la Mancha</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Miguel de Cervantes</h6>
-            <p class="card-text">Considerada la primera novela moderna, relata las aventuras del caballero Don Quijote y su fiel escudero Sancho Panza.</p>
-          </div>
-        </div>
-      </div>
-
-    
-        <!-- Tarjeta 6 -->
-      <div class="col-md-4 col-lg-3">
-        <div class="card h-100 shadow">
-          <img src="image/el principito.jpg" class="card-img-top" alt="El principito">
-          <div class="card-body">
-            <h5 class="card-title">El principito</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Antoine de Saint-Exupéry</h6>
-            <p class="card-text">Una fábula poética que reflexiona sobre la amistad, el amor y la esencia de la vida a través de los ojos de un niño viajero de planetas.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tarjeta 7 -->
-      <div class="col-md-4 col-lg-3">
-        <div class="card h-100 shadow">
-          <img src="image/la metamorfosis.jpg" class="card-img-top" alt="La metamorfosis">
-          <div class="card-body">
-            <h5 class="card-title">La metamorfosis</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Franz Kafka</h6>
-            <p class="card-text">La historia de Gregorio Samsa, un hombre que despierta convertido en insecto, simbolizando la alienación y la incomunicación humana.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tarjeta 8 -->
-      <div class="col-md-4 col-lg-3">
-        <div class="card h-100 shadow">
-          <img src="image/en busca del tiempo perdido.jpg" class="card-img-top" alt="En busca del tiempo perdido">
-          <div class="card-body">
-            <h5 class="card-title">En busca del tiempo perdido</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Marcel Proust</h6>
-            <p class="card-text">Una monumental obra que explora la memoria, el paso del tiempo y la vida burguesa francesa a través de recuerdos y reflexiones.</p>
-          </div>
-        </div>
-      </div>
-</div>
-  </div>
 
 
-        <footer class="site-footer"> <!-- Footer -->
 
-            <div id="footer-container">
 
-                <div class="footer-top">©️ 2025 Todos los Derechos Reservados. Descubre la experiencia de la lectura Fisica/digital - Bibliotech</div>
-                <!-- derechos de autor -->
+        <form id="loginForm" class="hidden">
+            <h2>Iniciar Sesión</h2>
+            <button type="button" id="cerrarInicio" class="cerrar-btn">X</button>
+            <label for="loginEmail">Correo:</label>
+            <input type="email" id="loginEmail" required>
 
-                <ul class="footer-links">
-                    <li><a class="link" href="https://github.com/crisdev06" target="_blank" rel="noreferrer">
-                            <!-- 1. icono redes sociales -->
-                            <img class="logo" src="image/icons/github.png" alt="Logo github">
-                        </a>
-                    </li>
+            <label for="loginPassword">Contraseña:</label>
+            <input type="password" id="loginPassword" required>
 
-                    <li><a class="link" href="https://portal.inacap.cl" target="_blank">
-                            <!-- 2. icono redes sociales -->
-                            <img class="logo" src="image/icons/inacap.png" alt="Logo inacap">
-                        </a>
-                    </li>
+            <button class="enviarForm" type="submit">Ingresar</button>
+        </form>
 
-                </ul>
+
+        <form id="registerForm" class="hidden">
+            <h2>Registrarse</h2>
+
+            <button type="button" id="cerrarRegistro" class="cerrar-btn">X</button>
+            <label for="regNombre">Nombre:</label>
+            <input type="text" id="regNombre" required>
+
+            <label for="regEmail">Correo:</label>
+            <input type="email" id="regEmail" required>
+
+            <label for="regTelefono">Teléfono:</label>
+            <input type="tel" id="regTelefono" required pattern="[0-9]{8,15}" placeholder="Solo números">
+
+            <label for="regPassword">Contraseña:</label>
+            <input type="password" id="regPassword" required>
+
+            <button class="enviarForm" type="submit">Registrarse</button>
+        </form>
+
+        <!-- Botón para generar la renta -->
+        <button id="btnMostrarRenta" class="hidden">Reservar Libro</button>
+
+        <!-- Formulario de renta de libros -->
+        <form id="rentaForm" class="hidden">
+            <h2>Reservar Libro</h2>
+            <button type="button" id="cerrarRenta" class="cerrar-btn">X</button>
+
+            <label for="libro">Título del libro:</label>
+            <input type="text" id="libro" required>
+
+            <label for="isbn">ISBN (opcional):</label>
+            <input type="text" id="isbn" placeholder="Buscar por ISBN">
+
+            <label for="fechaRenta">Fecha de renta:</label>
+            <input type="date" id="fechaRenta" required>
+
+            <label for="fechaDevolucion">Fecha de devolución:</label>
+            <input type="date" id="fechaDevolucion" required>
+
+            <button class="enviarForm" type="submit" disabled>Rentar libro</button>
+        </form>
+
+        <div id="mensaje"></div>
+        <div class="container my-5">
+            <h2 class="text-center mb-4">Libros Destacados</h2>
+            <div class="row g-4">
+
+                <!-- Tarjeta 1 -->
+                <div class="col-md-4 col-lg-3">
+                    <div class="card h-100 shadow">
+                        <img src="image/matar-a-un-ruisenor-resumen.jpeg" class="card-img-top" alt="Matar un ruiseñor">
+                        <div class="card-body">
+                            <h5 class="card-title">Matar un ruiseñor</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Harper Lee</h6>
+                            <p class="card-text">Un clásico de la literatura moderna que aborda temas de justicia,
+                                racismo y
+                                moralidad en el sur de Estados Unidos.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 2 -->
+                <div class="col-md-4 col-lg-3">
+                    <div class="card h-100 shadow">
+                        <img src="image/crimen y castigo.jpg" class="card-img-top" alt="Crimen y castigo">
+                        <div class="card-body">
+                            <h5 class="card-title">Crimen y castigo</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Fiódor Dostoyevski</h6>
+                            <p class="card-text">La historia de Raskólnikov, un joven estudiante que lucha con la culpa
+                                y la
+                                redención tras cometer un asesinato.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 3 -->
+                <div class="col-md-4 col-lg-3">
+                    <div class="card h-100 shadow">
+                        <img src="image/1984.jpg" class="card-img-top" alt="1984">
+                        <div class="card-body">
+                            <h5 class="card-title">1984</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">George Orwell</h6>
+                            <p class="card-text">Una novela distópica que explora el totalitarismo, la vigilancia
+                                extrema y
+                                la manipulación de la verdad.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 4 -->
+                <div class="col-md-4 col-lg-3">
+                    <div class="card h-100 shadow">
+                        <img src="image/cien años de soledad.jpg" class="card-img-top" alt="Cien años de soledad">
+                        <div class="card-body">
+                            <h5 class="card-title">Cien años de soledad</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Gabriel García Márquez</h6>
+                            <p class="card-text">La obra cumbre del realismo mágico que narra la historia de la familia
+                                Buendía en el mítico pueblo de Macondo.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 5 -->
+                <div class="col-md-4 col-lg-3">
+                    <div class="card h-100 shadow">
+                        <img src="image/Don Quijote De la Mancha.jpg" class="card-img-top"
+                            alt="Don Quijote de la Mancha">
+                        <div class="card-body">
+                            <h5 class="card-title">Don Quijote de la Mancha</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Miguel de Cervantes</h6>
+                            <p class="card-text">Considerada la primera novela moderna, relata las aventuras del
+                                caballero
+                                Don Quijote y su fiel escudero Sancho Panza.</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Tarjeta 6 -->
+                <div class="col-md-4 col-lg-3">
+                    <div class="card h-100 shadow">
+                        <img src="image/el principito.jpg" class="card-img-top" alt="El principito">
+                        <div class="card-body">
+                            <h5 class="card-title">El principito</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Antoine de Saint-Exupéry</h6>
+                            <p class="card-text">Una fábula poética que reflexiona sobre la amistad, el amor y la
+                                esencia de
+                                la vida a través de los ojos de un niño viajero de planetas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 7 -->
+                <div class="col-md-4 col-lg-3">
+                    <div class="card h-100 shadow">
+                        <img src="image/la metamorfosis.jpg" class="card-img-top" alt="La metamorfosis">
+                        <div class="card-body">
+                            <h5 class="card-title">La metamorfosis</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Franz Kafka</h6>
+                            <p class="card-text">La historia de Gregorio Samsa, un hombre que despierta convertido en
+                                insecto, simbolizando la alienación y la incomunicación humana.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 8 -->
+                <div class="col-md-4 col-lg-3">
+                    <div class="card h-100 shadow">
+                        <img src="image/en busca del tiempo perdido.jpg" class="card-img-top"
+                            alt="En busca del tiempo perdido">
+                        <div class="card-body">
+                            <h5 class="card-title">En busca del tiempo perdido</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Marcel Proust</h6>
+                            <p class="card-text">Una monumental obra que explora la memoria, el paso del tiempo y la
+                                vida
+                                burguesa francesa a través de recuerdos y reflexiones.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </footer>
+        </div>
+
+
+
+    </div>
+
+
+
+
+    <footer class="site-footer"> <!-- Footer -->
+
+        <div id="footer-container">
+
+            <div class="footer-top">©️ 2025 Todos los Derechos Reservados. Descubre la experiencia de la lectura
+                Fisica/digital - Bibliotech</div>
+            <!-- derechos de autor -->
+
+            <ul class="footer-links">
+                <li><a class="link" href="https://github.com/crisdev06" target="_blank" rel="noreferrer">
+                        <!-- 1. icono redes sociales -->
+                        <img class="logo" src="image/icons/github.png" alt="Logo github">
+                    </a>
+                </li>
+
+                <li><a class="link" href="https://portal.inacap.cl" target="_blank">
+                        <!-- 2. icono redes sociales -->
+                        <img class="logo" src="image/icons/inacap.png" alt="Logo inacap">
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </footer>
     </div>
     <script src="front/js/formulario.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
