@@ -228,16 +228,9 @@ select:focus {
 /* =====================
    Responsividad
 ===================== */
-@media (max-width: 1200px) {
-  .carousel-inner {
-    max-height: 350px;
-  }
-}
+
 
 @media (max-width: 992px) {
-  .carousel-inner {
-    max-height: 300px;
-  }
 
   .card-img-top {
     height: 200px;
@@ -245,9 +238,6 @@ select:focus {
 }
 
 @media (max-width: 768px) {
-  .carousel-inner {
-    max-height: 250px;
-  }
 
   .card-img-top {
     height: 180px;
@@ -255,9 +245,6 @@ select:focus {
 }
 
 @media (max-width: 576px) {
-  .carousel-inner {
-    max-height: 200px;
-  }
 
   .card-img-top {
     height: 150px;
