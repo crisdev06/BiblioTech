@@ -1,9 +1,5 @@
 /* ==================== RESET ==================== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+
 
 /* ==================== CLASES GENERALES ==================== */
 .hidden {
@@ -11,11 +7,6 @@
 }
 
 /* ==================== NAVBAR ==================== */
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-}
 
 /* ==================== FORMULARIOS ==================== */
 form {

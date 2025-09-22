@@ -1,43 +1,10 @@
 <?php
-include("conexion.php");
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $rut_usuario = $_POST['rut_usuario'];
-    $id_libro = $_POST['id_libro'];
-    $fecha_prestamo = $_POST['fecha_prestamo'];
-    $fecha_devolucion = $_POST['fecha_devolucion'];
 
-    // Verificar que el libro tiene stock disponible
-    $verificar = $conexion->prepare("SELECT stock FROM registro_libro WHERE id_libro = ?");
-    $verificar->bind_param("s", $id_libro);
-    $verificar->execute();
-    $resultado = $verificar->get_result();
-    $libro = $resultado->fetch_assoc();
-
-    if ($libro && $libro['stock'] > 0) {
-        // Registrar el préstamo
-        $sql = "INSERT INTO registro_prestamo (rut_usuario, id_libro, fecha_prestamo, fecha_devolucion) VALUES (?, ?, ?, ?)";
-        $stmt = $conexion->prepare($sql);
-        $stmt->bind_param("ssss", $rut_usuario, $id_libro, $fecha_prestamo, $fecha_devolucion);
-
-        if ($stmt->execute()) {
-            // Descontar 1 del stock
-            $update = $conexion->prepare("UPDATE registro_libro SET stock = stock - 1 WHERE id_libro = ?");
-            $update->bind_param("s", $id_libro);
-            $update->execute();
-
-            echo "<script>alert('Préstamo registrado y stock actualizado'); window.location.href='tablaRegistroPrestamos.php';</script>";
-            exit;
-        } else {
-            echo "Error al registrar el préstamo: " . $stmt->error;
-        }
-    } else {
-        echo "<script>alert('No hay stock disponible para este libro'); window.location.href='renta.php';</script>";
-    }
-}
 ?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -47,14 +14,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="../front/css/formularios.css">
     <link rel="stylesheet" href="../front/css/navbar.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-
-
     <title>Bibliotech</title>
 </head>
 
 <body>
     <div id="main-container">
+
         <header>
             <nav class="navbar navbar-expand-lg navbar-custom">
                 <div class="container-fluid">
@@ -107,38 +72,56 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
             </nav>
         </header>
+        <main>
+            
+            <div id="table-container">
+                <div class="container my-4 text-center">
+                    <h2>Registro de libros</h2>
+                    <div class="table-responsive">
+                        <table class="table custom-table">
+                            <tr>
+                                <th>ID</th>
+                                <th>Título</th>
+                                <th>Autor</th>
+                                <th>Editorial</th>
+                                <th>Año de Publicación</th>
+                                <th>Stock</th>
+                            </tr>
+                            <?php
+                            include("conexion.php");
 
-        <section class="bg-light">
-            <div class="container mt-5">
-                <h2 class="mb-4">Formulario de Renta Libros</h2>
-                <form id="rentaForm" method="POST" action="renta.php">
-                    <h2>Reservar Libro</h2>
-                    <button type="button" id="cerrarRenta" class="cerrar-btn"></button>
+                            $sql = "SELECT * FROM registro_libro";
+                            $result = $conexion->query($sql);
 
-                    <label for="rutUsuario">RUT del usuario:</label>
-                    <input type="text" id="rutUsuario" name="rut_usuario" placeholder="Ingrese el RUT" required>
+                            if ($result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()) {
+                                    echo "<tr>";
+                                    echo "<td>" . $row["id_libro"] . "</td>";
+                                    echo "<td>" . $row["titulo"] . "</td>";
+                                    echo "<td>" . $row["autor"] . "</td>";
+                                    echo "<td>" . $row["editorial"] . "</td>";
+                                    echo "<td>" . $row["anio_publicacion"] . "</td>";
+                                    echo "<td>" . $row["stock"] . "</td>";
+                                    echo "</tr>";
+                                }
+                            } else {
+                                echo "<tr><td colspan='6'>No hay registros</td></tr>";
+                            }
+                            $conexion->close();
+                            ?>
+                        </table>
+                    </div>
 
-                    <label for="idLibro">ID del libro:</label>
-                    <input type="text" id="idLibro" name="id_libro" placeholder="Ingrese el ID del libro" required>
+        </main>
 
-                    <label for="fechaRenta">Fecha de renta:</label>
-                    <input type="date" id="fechaRenta" name="fecha_prestamo" required>
-
-                    <label for="fechaDevolucion">Fecha de devolución:</label>
-                    <input type="date" id="fechaDevolucion" name="fecha_devolucion">
-
-                    <button class="enviarForm" type="submit">Rentar libro</button>
-                </form>
-
-
-            </div>
-        </section>
         <footer class="site-footer"> <!-- Footer -->
 
             <div id="footer-container">
 
-                <div class="footer-top">©️ 2025 Todos los Derechos Reservados. <br> Descubre la experiencia de la lectura
-                    Fisica/digital - Bibliotech</div>
+                <div class="footer-top">
+                    ©️ 2025 Todos los Derechos Reservados. <br> Descubre la experiencia de la lectura
+                    Fisica/digital - Bibliotech
+                </div>
                 <!-- derechos de autor -->
 
                 <ul class="footer-links">
@@ -159,13 +142,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </footer>
         <script src="front/js/formulario.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script>
-            const params = new URLSearchParams(window.location.search);
-            if (params.get("registro") === "ok") {
-                alert("Registro agregado con éxito");
-            }
-        </script>
 
-
+</body>
 
 </html>

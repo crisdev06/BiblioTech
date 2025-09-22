@@ -16,90 +16,88 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `prestamos_libros`
+-- Table structure for table `registro_libro`
 --
 
-DROP TABLE IF EXISTS `prestamos_libros`;
+DROP TABLE IF EXISTS `registro_libro`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `prestamos_libros` (
-  `id_prestamo` int(11) NOT NULL AUTO_INCREMENT,
-  `id_usuario` int(11) NOT NULL,
-  `id_libro` int(11) NOT NULL,
-  `fecha_prestamo` date DEFAULT curdate(),
-  `fecha_devolucion` date DEFAULT NULL,
-  `devuelto` tinyint(1) DEFAULT 0,
-  PRIMARY KEY (`id_prestamo`),
-  KEY `id_usuario` (`id_usuario`),
-  KEY `id_libro` (`id_libro`),
-  CONSTRAINT `prestamos_libros_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `registro_usuarios` (`id_usuario`),
-  CONSTRAINT `prestamos_libros_ibfk_2` FOREIGN KEY (`id_libro`) REFERENCES `registro_libros` (`id_libro`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `prestamos_libros`
---
-
-LOCK TABLES `prestamos_libros` WRITE;
-/*!40000 ALTER TABLE `prestamos_libros` DISABLE KEYS */;
-/*!40000 ALTER TABLE `prestamos_libros` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `registro_libros`
---
-
-DROP TABLE IF EXISTS `registro_libros`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `registro_libros` (
-  `id_libro` int(11) NOT NULL AUTO_INCREMENT,
-  `titulo` varchar(150) NOT NULL,
+CREATE TABLE `registro_libro` (
+  `id_libro` varchar(20) NOT NULL,
+  `titulo` varchar(100) NOT NULL,
   `autor` varchar(100) DEFAULT NULL,
-  `editorial` varchar(100) DEFAULT NULL,
+  `editorial` varchar(100) NOT NULL,
   `anio_publicacion` year(4) DEFAULT NULL,
-  `stock` int(11) DEFAULT 1,
+  `stock` int(11) NOT NULL DEFAULT 0 CHECK (`stock` >= 0),
   PRIMARY KEY (`id_libro`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `registro_libros`
+-- Dumping data for table `registro_libro`
 --
 
-LOCK TABLES `registro_libros` WRITE;
-/*!40000 ALTER TABLE `registro_libros` DISABLE KEYS */;
-/*!40000 ALTER TABLE `registro_libros` ENABLE KEYS */;
+LOCK TABLES `registro_libro` WRITE;
+/*!40000 ALTER TABLE `registro_libro` DISABLE KEYS */;
+INSERT INTO `registro_libro` VALUES ('LBR001','Don Quijote de la Mancha','Miguel de Cervantes','Desconocida',0000,10),('LBR002','Cien anios de soledad','Gabriel Garc?a M?rquez','Desconocida',1967,10),('LBR003','1984','George Orwell','Desconocida',1949,10),('LBR004','Orgullo y prejuicio','Jane Austen','Desconocida',0000,10),('LBR005','Crimen y castigo','Fi?dor Dostoyevski','Desconocida',0000,10),('LBR006','Matar a un ruisenor','Harper Lee','Desconocida',1960,10),('LBR007','En busca del tiempo perdido','Marcel Proust','Desconocida',1913,10),('LBR008','Ulises','James Joyce','Desconocida',1922,10),('LBR009','El gran Gatsby','F. Scott Fitzgerald','Desconocida',1925,10),('LBR010','Cumbres borrascosas','Emily Bronte','Desconocida',0000,10);
+/*!40000 ALTER TABLE `registro_libro` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `registro_usuarios`
+-- Table structure for table `registro_prestamo`
 --
 
-DROP TABLE IF EXISTS `registro_usuarios`;
+DROP TABLE IF EXISTS `registro_prestamo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `registro_usuarios` (
-  `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(40) NOT NULL,
-  `apellido` varchar(40) NOT NULL,
-  `telefono` int(11) NOT NULL,
-  `correo` varchar(100) NOT NULL,
-  `contrasena` varchar(20) NOT NULL,
-  `fecha_registro` date DEFAULT curdate(),
-  PRIMARY KEY (`id_usuario`),
-  UNIQUE KEY `correo` (`correo`)
+CREATE TABLE `registro_prestamo` (
+  `id_prestamo` int(11) NOT NULL AUTO_INCREMENT,
+  `rut_usuario` varchar(12) DEFAULT NULL,
+  `id_libro` varchar(20) DEFAULT NULL,
+  `fecha_prestamo` date NOT NULL,
+  `fecha_devolucion` date DEFAULT NULL,
+  PRIMARY KEY (`id_prestamo`),
+  KEY `rut_usuario` (`rut_usuario`),
+  KEY `id_libro` (`id_libro`),
+  CONSTRAINT `registro_prestamo_ibfk_1` FOREIGN KEY (`rut_usuario`) REFERENCES `registro_usuario` (`rut`),
+  CONSTRAINT `registro_prestamo_ibfk_2` FOREIGN KEY (`id_libro`) REFERENCES `registro_libro` (`id_libro`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `registro_usuarios`
+-- Dumping data for table `registro_prestamo`
 --
 
-LOCK TABLES `registro_usuarios` WRITE;
-/*!40000 ALTER TABLE `registro_usuarios` DISABLE KEYS */;
-/*!40000 ALTER TABLE `registro_usuarios` ENABLE KEYS */;
+LOCK TABLES `registro_prestamo` WRITE;
+/*!40000 ALTER TABLE `registro_prestamo` DISABLE KEYS */;
+/*!40000 ALTER TABLE `registro_prestamo` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `registro_usuario`
+--
+
+DROP TABLE IF EXISTS `registro_usuario`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `registro_usuario` (
+  `rut` varchar(12) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `apellido` varchar(50) NOT NULL,
+  `fono` varchar(20) NOT NULL,
+  `correo` varchar(50) DEFAULT NULL,
+  `contrasena` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`rut`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `registro_usuario`
+--
+
+LOCK TABLES `registro_usuario` WRITE;
+/*!40000 ALTER TABLE `registro_usuario` DISABLE KEYS */;
+/*!40000 ALTER TABLE `registro_usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -111,4 +109,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-08-31 21:55:18
+-- Dump completed on 2025-09-18  0:59:59
