@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $stmt->bind_param("ssssss", $rut, $nombre, $apellido, $fono, $regEmail, $password);
 
   if ($stmt->execute()) {
-    header("Location: index.html?registro=ok");
+    header("Location: ../index.html?registro=ok");
     exit;
   }
 }
@@ -96,39 +96,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <section class="bg-light">
       <div class="container mt-5">
-        <h2 class="mb-4">Formulario de Registro de Clientes</h2>
+        <h2 class="mb-4 text-center">Formulario de Registro de Clientes</h2>
 
-        <form action="registrarCliente.php" method="POST" class="p-4 border rounded bg-white shadow-sm">
-          <div class="mb-3">
-
-            <h2>Registrar Cliente</h2>
-
-            <label for="regRut" class="form-label">Rut</label>
-            <input type="text" class="form-control" id="regRut" name="regRut" placeholder="Ingrese su rut" required>
-
-
+        <form id="formularioCliente" action="registrarCliente.php" method="POST" class="p-4 border rounded bg-white shadow-sm">
+          
+        <div class="mb-3">
+          <h2>Registrar Cliente</h2>
+          <label for="regRut" class="form-label">Rut</label>
+          <input type="text" class="form-control" id="Rut" name="regRut" placeholder="Ingrese su rut" required>
+        </div>
+        
+        <div class="mb-3">
             <label for="regNombre" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="regNombre" name="regNombre" placeholder="Ingrese su nombre" required>
+            <input type="text" class="form-control" id="Nombre" name="regNombre" placeholder="Ingrese su nombre" required>
           </div>
 
           <div class="mb-3">
             <label for="regApellido" class="form-label">Apellido</label>
-            <input type="text" class="form-control" id="regApellido" name="regApellido" placeholder="Ingrese su apellido" required>
+            <input type="text" class="form-control" id="Apellido" name="regApellido" placeholder="Ingrese su apellido" required>
           </div>
 
           <div class="mb-3">
             <label for="regFono" class="form-label">Fono</label>
-            <input type="text" class="form-control" id="regFono" name="regFono" placeholder="Ingrese su telefono" required>
+            <input type="text" class="form-control" id="Telefono" name="regFono" placeholder="Ingrese su telefono" required>
           </div>
 
           <div class="mb-3">
             <label for="regEmail" class="form-label">Correo electrónico</label>
-            <input type="email" class="form-control" id="regEmail" name="regEmail" placeholder="Ingrese su correo" required>
+            <input type="email" class="form-control" id="Email" name="regEmail" placeholder="Ingrese su correo" required>
           </div>
 
           <div class="mb-3">
             <label for="regPassword" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" id="regPassword" name="regPassword" placeholder="Ingrese su contraseña" required>
+            <input type="password" class="form-control" id="Password" name="regPassword" placeholder="Ingrese su contraseña" required>
           </div>
 
           <button type="submit" class="btn btn-primary">Registrar</button>
@@ -136,7 +136,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
       </div>
     </section>
-      <footer class="site-footer"> <!-- Footer -->
+      <footer class="site-footer"> 
 
         <div id="footer-container">
 
@@ -145,7 +145,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <!-- derechos de autor -->
 
           <ul class="footer-links">
-            <li><a class="link" href="https://github.com/crisdev06" target="_blank" rel="noreferrer">
+            <li><a class="link" href="https://github.com/crisdev06/BiblioTech" target="_blank" rel="noreferrer">
                 <!-- 1. icono redes sociales -->
                 <img class="logo" src="../icons/github.png" alt="Logo github">
               </a>
@@ -163,7 +163,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   </div>
   </footer>
 
-  <script src="front/js/formulario.js"></script>
+  <script src="../front/js/formularioCliente.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     const params = new URLSearchParams(window.location.search);

@@ -125,7 +125,7 @@
                 <!-- derechos de autor -->
 
                 <ul class="footer-links">
-                    <li><a class="link" href="https://github.com/crisdev06" target="_blank" rel="noreferrer">
+                    <li><a class="link" href="https://github.com/crisdev06/BiblioTech" target="_blank" rel="noreferrer">
                             <!-- 1. icono redes sociales -->
                             <img class="logo" src="../icons/github.png" alt="Logo github">
                         </a>
@@ -140,7 +140,6 @@
                 </ul>
             </div>
         </footer>
-        <script src="front/js/formulario.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>

@@ -20,13 +20,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt = $conexion->prepare($sql);
         $stmt->bind_param("ssss", $rut_usuario, $id_libro, $fecha_prestamo, $fecha_devolucion);
 
-        if ($stmt->execute()) {
+        if ($stmt->execute()) {         
             // Descontar 1 del stock
             $update = $conexion->prepare("UPDATE registro_libro SET stock = stock - 1 WHERE id_libro = ?");
             $update->bind_param("s", $id_libro);
             $update->execute();
 
-            echo "<script>alert('Préstamo registrado y stock actualizado'); window.location.href='tablaRegistroPrestamos.php';</script>";
+            header("Location: ../index.html?registro=ok");
             exit;
         } else {
             echo "Error al registrar el préstamo: " . $stmt->error;
@@ -34,10 +34,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo "<script>alert('No hay stock disponible para este libro'); window.location.href='renta.php';</script>";
     }
+    
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -115,17 +116,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <h2>Reservar Libro</h2>
                     <button type="button" id="cerrarRenta" class="cerrar-btn"></button>
 
-                    <label for="rutUsuario">RUT del usuario:</label>
-                    <input type="text" id="rutUsuario" name="rut_usuario" placeholder="Ingrese el RUT" required>
+                    <label for="rut_usuario">RUT del usuario:</label>
+                    <input type="text" id="Rut" name="rut_usuario" placeholder="Ingrese el RUT" required>
 
                     <label for="idLibro">ID del libro:</label>
                     <input type="text" id="idLibro" name="id_libro" placeholder="Ingrese el ID del libro" required>
 
                     <label for="fechaRenta">Fecha de renta:</label>
-                    <input type="date" id="fechaRenta" name="fecha_prestamo" required>
+                    <input type="date" id="fechaRenta" name="fecha_prestamo" placeholder="Ingrese la fecha de renta" required>
 
                     <label for="fechaDevolucion">Fecha de devolución:</label>
-                    <input type="date" id="fechaDevolucion" name="fecha_devolucion">
+                    <input type="date" id="fechaDevolucion" name="fecha_devolucion" placeholder="Ingrese la fecha de devolución" required >
 
                     <button class="enviarForm" type="submit">Rentar libro</button>
                 </form>
@@ -142,7 +143,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <!-- derechos de autor -->
 
                 <ul class="footer-links">
-                    <li><a class="link" href="https://github.com/crisdev06" target="_blank" rel="noreferrer">
+                    <li><a class="link" href="https://github.com/crisdev06/BiblioTech" target="_blank" rel="noreferrer">
                             <!-- 1. icono redes sociales -->
                             <img class="logo" src="../icons/github.png" alt="Logo github">
                         </a>
@@ -157,7 +158,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </ul>
             </div>
         </footer>
-        <script src="front/js/formulario.js"></script>
+        <script src="../front/js/formularioRenta.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
         <script>
             const params = new URLSearchParams(window.location.search);

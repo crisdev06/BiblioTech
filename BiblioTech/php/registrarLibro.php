@@ -2,19 +2,20 @@
 include("conexion.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $id_libro = $_POST['registroId_libro'];
+    $id_libro = strtoupper($_POST['registroId_libro']);
     $titulo = $_POST['registroTitulo'];
     $autor = $_POST['registroAutor'];
     $editorial = $_POST['registroEditorial'];
     $anioPublicacion = $_POST['registroAnioPublicacion'];
     $stock = $_POST['registroStock'];
 
+
     $sql = "INSERT INTO registro_libro (id_libro, titulo, autor, editorial, anio_publicacion, stock) VALUES (?, ?, ?, ?, ?, ?)";
     $stmt = $conexion->prepare($sql);
     $stmt->bind_param("ssssii", $id_libro, $titulo, $autor, $editorial, $anioPublicacion, $stock);
 
     if ($stmt->execute()) {
-        header("Location: index.html?registro=ok");
+        header("Location: ../index.html?registro=ok");
         exit;
     }
 }
@@ -101,22 +102,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <button type="button" id="cerrarInicio" class="cerrar-btn"></button>
 
                     <label for="id_libro">ID del libro</label>
-                    <input type="text" name="registroId_libro" id="registroId_libro" placeholder="Ingrese Id del libro" required>
+                    <input type="text" name="registroId_libro" id="idLibro" placeholder="Ingrese Id del libro" required>
 
                     <label for="titulo">Titulo</label>
-                    <input type="text" name="registroTitulo" id="registroTitulo" placeholder="Ingrese el título del libro" required>
+                    <input type="text" name="registroTitulo" id="Titulo" placeholder="Ingrese el título del libro" required>
 
                     <label for="autor">Autor</label>
-                    <input type="text" name="registroAutor" id="registroAutor" placeholder="Ingrese el autor" required>
+                    <input type="text" name="registroAutor" id="Autor" placeholder="Ingrese el autor" required>
 
                     <label for="editorial">Editorial</label>
-                    <input type="text" name="registroEditorial" id="registroEditorial" placeholder="Ingrese la Editorial" required>
+                    <input type="text" name="registroEditorial" id="Editorial" placeholder="Ingrese la Editorial" required>
 
                     <label for="anioPublicacion">Año de publicación</label>
-                    <input type="number" name="registroAnioPublicacion" id="registroAnioPublicacion" placeholder="Ingrese el año de publicacion" required>
+                    <input type="number" name="registroAnioPublicacion" id="Publicacion" placeholder="Ingrese el año de publicacion" required>
 
                     <label for="stock">Stock</label>
-                    <input type="number" name="registroStock" id="registroStock" placeholder="Ingrese Stock" required>
+                    <input type="number" name="registroStock" id="Stock" placeholder="Ingrese Stock" required>
 
                     <button class="enviarForm" type="submit">Ingresar</button>
                 </form>
@@ -130,7 +131,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <!-- derechos de autor -->
 
                 <ul class="footer-links">
-                    <li><a class="link" href="https://github.com/crisdev06" target="_blank" rel="noreferrer">
+                    <li><a class="link" href="https://github.com/crisdev06/BiblioTech" target="_blank" rel="noreferrer">
                             <!-- 1. icono redes sociales -->
                             <img class="logo" src="../icons/github.png" alt="Logo github">
                         </a>
@@ -147,7 +148,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
         </footer>
     </div>
-    <script src="front/js/formulario.js"></script>
+    <script src="../front/js/formularioLibro.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         const params = new URLSearchParams(window.location.search);
