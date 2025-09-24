@@ -111,7 +111,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <section class="bg-light">
             <div class="container mt-5">
-                <h2 class="mb-4">Formulario de Renta Libros</h2>
+                <h2 class="mb-4 text-center">Formulario de Renta Libros</h2>
                 <form id="rentaForm" method="POST" action="renta.php">
                     <h2>Reservar Libro</h2>
                     <button type="button" id="cerrarRenta" class="cerrar-btn"></button>

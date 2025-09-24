@@ -94,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <section class="bg-light">
             <div class="container mt-5">
-                <h2 class="mb-4">Formulario de Registro de Libros</h2>
+                <h2 class="mb-4 text-center">Formulario de Registro de Libros</h2>
                 <!-- Formulario de registro de LIBROS-->
                 <form id="registrarlibro" method="POST" action="registrarLibro.php">
                     <h2>Agregar Libro</h2>
@@ -104,7 +104,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <label for="id_libro">ID del libro</label>
                     <input type="text" name="registroId_libro" id="idLibro" placeholder="Ingrese Id del libro" required>
 
-                    <label for="titulo">Titulo</label>
+                    <label for="titulo">Título</label>
                     <input type="text" name="registroTitulo" id="Titulo" placeholder="Ingrese el título del libro" required>
 
                     <label for="autor">Autor</label>
