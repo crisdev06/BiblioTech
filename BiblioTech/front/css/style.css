@@ -20,6 +20,25 @@ body {
   min-height: 100dvh;
   grid-template-rows: auto 1fr auto;
 }
+
+
+/* =====================
+   Contenedor principal
+===================== */
+.container {
+  max-width: 1100px;
+  margin: 30px auto;
+  background-color: #a4c9df;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.container h2 {
+  color: #1d3a6d;
+  margin-bottom: 20px;
+}
+
 .bienvenida-full {
   display: flex;
   height: 100vh; /* Ocupa toda la altura visible */
@@ -31,6 +50,7 @@ body {
   color: #333;
   overflow: hidden;
 }
+
 .bienvenida-full .texto {
   flex: 1;
   padding: 40px;
@@ -66,22 +86,7 @@ body {
   object-fit: cover; /* Recorta la imagen proporcionalmente */
 }
 
-/* =====================
-   Contenedor principal
-===================== */
-.container {
-  max-width: 1100px;
-  margin: 30px auto;
-  background-color: #a4c9df;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-}
 
-.container h2 {
-  color: #1d3a6d;
-  margin-bottom: 20px;
-}
 
 /* =====================
    Formularios

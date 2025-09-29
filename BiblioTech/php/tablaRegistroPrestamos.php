@@ -38,13 +38,13 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item"
-                                            href="http://localhost/BiblioTech/Bibliotech/php/registrarCliente.php">Registrar
+                                            href="http://localhost/BiblioTech/BiblioTech/php/registrarCliente.php">Registrar
                                             Clientes</a></li>
                                     <li><a class="dropdown-item"
-                                            href="http://localhost/BiblioTech/Bibliotech/php/registrarLibro.php">Registrar
+                                            href="http://localhost/BiblioTech/BiblioTech/php/registrarLibro.php">Registrar
                                             Libros</a></li>
                                     <li><a class="dropdown-item"
-                                            href="http://localhost/BiblioTech/Bibliotech/php/renta.php">Registro Préstamo de
+                                            href="http://localhost/BiblioTech/BiblioTech/php/renta.php">Registro Préstamo de
                                             Libros</a></li>
                                 </ul>
                             </li>
@@ -55,14 +55,14 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item"
-                                            href="http://localhost/BiblioTech/Bibliotech/php/tablaRegistroClientes.php">Clientes
+                                            href="http://localhost/BiblioTech/BiblioTech/php/tablaRegistroClientes.php">Clientes
                                             Registrados</a>
                                     </li>
                                     <li><a class="dropdown-item"
-                                            href="http://localhost/BiblioTech/Bibliotech/php/tablaRegistroLibros.php">Libros
+                                            href="http://localhost/BiblioTech/BiblioTech/php/tablaRegistroLibros.php">Libros
                                             registrados</a></li>
                                     <li><a class="dropdown-item"
-                                            href="http://localhost/BiblioTech/Bibliotech/php/tablaRegistroPrestamos.php">Préstamo
+                                            href="http://localhost/BiblioTech/BiblioTech/php/tablaRegistroPrestamos.php">Préstamo
                                             Registrados</a>
                                     </li>
                                 </ul>
@@ -74,7 +74,7 @@
         </header>
         <main>
 
-            
+
             <div class="container my-4 text-center">
                 <h2>Registro de Préstamos</h2>
                 <div class="table-responsive">
@@ -136,7 +136,7 @@
 
                 <div class="footer-top">
                     ©️ 2025 Todos los Derechos Reservados. <br> Descubre la experiencia de la lectura
-                    Fisica/digital - Bibliotech
+                    Física/digital - Bibliotech
                 </div>
                 <!-- derechos de autor -->
 

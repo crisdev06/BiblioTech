@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt = $conexion->prepare($sql);
         $stmt->bind_param("ssss", $rut_usuario, $id_libro, $fecha_prestamo, $fecha_devolucion);
 
-        if ($stmt->execute()) {         
+        if ($stmt->execute()) {
             // Descontar 1 del stock
             $update = $conexion->prepare("UPDATE registro_libro SET stock = stock - 1 WHERE id_libro = ?");
             $update->bind_param("s", $id_libro);
@@ -34,7 +34,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo "<script>alert('No hay stock disponible para este libro'); window.location.href='renta.php';</script>";
     }
-    
 }
 ?>
 <!DOCTYPE html>
@@ -74,13 +73,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item"
-                                            href="http://localhost/BiblioTech/Bibliotech/php/registrarCliente.php">Registrar
+                                            href="http://localhost/BiblioTech/BiblioTech/php/registrarCliente.php">Registrar
                                             Clientes</a></li>
                                     <li><a class="dropdown-item"
-                                            href="http://localhost/BiblioTech/Bibliotech/php/registrarLibro.php">Registrar
+                                            href="http://localhost/BiblioTech/BiblioTech/php/registrarLibro.php">Registrar
                                             Libros</a></li>
                                     <li><a class="dropdown-item"
-                                            href="http://localhost/BiblioTech/Bibliotech/php/renta.php">Registro Préstamo de
+                                            href="http://localhost/BiblioTech/BiblioTech/php/renta.php">Registro Préstamo de
                                             Libros</a></li>
                                 </ul>
                             </li>
@@ -91,14 +90,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item"
-                                            href="http://localhost/BiblioTech/Bibliotech/php/tablaRegistroClientes.php">Clientes
+                                            href="http://localhost/BiblioTech/BiblioTech/php/tablaRegistroClientes.php">Clientes
                                             Registrados</a>
                                     </li>
                                     <li><a class="dropdown-item"
-                                            href="http://localhost/BiblioTech/Bibliotech/php/tablaRegistroLibros.php">Libros
+                                            href="http://localhost/BiblioTech/BiblioTech/php/tablaRegistroLibros.php">Libros
                                             registrados</a></li>
                                     <li><a class="dropdown-item"
-                                            href="http://localhost/BiblioTech/Bibliotech/php/tablaRegistroPrestamos.php">Préstamo
+                                            href="http://localhost/BiblioTech/BiblioTech/php/tablaRegistroPrestamos.php">Préstamo
                                             Registrados</a>
                                     </li>
                                 </ul>
@@ -126,7 +125,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="date" id="fechaRenta" name="fecha_prestamo" placeholder="Ingrese la fecha de renta" required>
 
                     <label for="fechaDevolucion">Fecha de devolución:</label>
-                    <input type="date" id="fechaDevolucion" name="fecha_devolucion" placeholder="Ingrese la fecha de devolución" required >
+                    <input type="date" id="fechaDevolucion" name="fecha_devolucion" placeholder="Ingrese la fecha de devolución" required>
 
                     <button class="enviarForm" type="submit">Rentar libro</button>
                 </form>
@@ -139,7 +138,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div id="footer-container">
 
                 <div class="footer-top">©️ 2025 Todos los Derechos Reservados. <br> Descubre la experiencia de la lectura
-                    Fisica/digital - Bibliotech</div>
+                    Física/digital - Bibliotech</div>
                 <!-- derechos de autor -->
 
                 <ul class="footer-links">
