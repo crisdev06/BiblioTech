@@ -1,11 +1,15 @@
 // validaciones.test.js
-const { validarRut, validarNombre, validarEmail, validarTelefono } = require('./validaciones');
+const { validarRut, validarNombre, validarEmail, validarTelefono, validarIdLibro  } = require('./validaciones');
 
 describe('Pruebas unitarias de validación', () => {
 
     // RUT
     test('RUT válido', () => {
         expect(validarRut('12.345.678-5')).toBe(true);
+    });
+
+    test('RUT válido', () => {
+        expect(validarRut('12345678-5')).toBe(true);
     });
 
     test('RUT inválido', () => {
@@ -71,4 +75,16 @@ describe('Pruebas unitarias de validación', () => {
         expect(validarTelefono('9123456789')).toBe(false);
     });
 
+    // IdLibro
+
+    test('IdLibro válido', () => {
+        expect(validarIdLibro('LBR123')).toBe(true);
+    });
+
+    test('IdLibro inválido', () => {
+        expect(validarIdLibro('LIB123')).toBe(false);
+    }); 
+    test('IdLibro vacío', () => {
+        expect(validarIdLibro('')).toBe(false);
+    });
 });
